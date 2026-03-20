@@ -8,6 +8,9 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Journey", href: "#journey" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -30,7 +33,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50"
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
-          <a href="#home" className="font-mono text-sm tracking-tight font-semibold">
+          <a href="#home" onClick={(e) => { e.preventDefault(); window.location.reload(); }} className="font-mono text-sm tracking-tight font-semibold">
             <span className="text-primary">Moinul</span>
             <span className="text-muted-foreground"> Hasan</span>
           </a>
@@ -40,9 +43,17 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => {
+                onClick={(e) => {
                   if (link.href === "#contact") {
-                    window.dispatchEvent(new CustomEvent("highlight-all-contacts"));
+                    e.preventDefault();
+                    document.getElementById("contact-channels")?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    setTimeout(() => {
+                      window.dispatchEvent(new CustomEvent("highlight-all-contacts"));
+                    }, 400);
+                  } else if (link.href === "#skills") {
+                    setTimeout(() => {
+                      window.dispatchEvent(new CustomEvent("highlight-skills"));
+                    }, 600);
                   }
                 }}
                 className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -98,10 +109,14 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => {
+                onClick={(e) => {
                   setOpen(false);
                   if (link.href === "#contact") {
-                    window.dispatchEvent(new CustomEvent("highlight-all-contacts"));
+                    e.preventDefault();
+                    document.getElementById("contact-channels")?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    setTimeout(() => window.dispatchEvent(new CustomEvent("highlight-all-contacts")), 400);
+                  } else if (link.href === "#skills") {
+                    setTimeout(() => window.dispatchEvent(new CustomEvent("highlight-skills")), 600);
                   }
                 }}
                 className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
