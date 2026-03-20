@@ -34,12 +34,13 @@ const ContactSection = () => {
         setTimeout(() => {
           setHighlightSocials(false);
           setHighlightEmail(false);
-        }, 2500);
+        }, 1500);
       }, 600);
     };
-    window.addEventListener("highlight-all-contacts", onAllContacts);
+
+    window.addEventListener("highlight-all-contacts", onAllContacts as EventListener);
     return () => {
-      window.removeEventListener("highlight-all-contacts", onAllContacts);
+      window.removeEventListener("highlight-all-contacts", onAllContacts as EventListener);
     };
   }, []);
 
@@ -65,7 +66,7 @@ const ContactSection = () => {
       if (response.ok) {
         toast({
           title: "Message Sent!",
-          description: "Thank you, Scar. I'll get back to you soon.",
+          description: "Thank you for reaching out. I'll get back to you soon.",
         });
         setForm({ name: "", email: "", message: "" });
       } else {
@@ -105,6 +106,7 @@ const ContactSection = () => {
                 placeholder="Your Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
+                maxLength={100}
                 required
                 className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all"
               />
@@ -114,6 +116,7 @@ const ContactSection = () => {
                 placeholder="Your Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
+                maxLength={255}
                 required
                 className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all"
               />
@@ -123,6 +126,7 @@ const ContactSection = () => {
               placeholder="Your Message"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
+              maxLength={1000}
               required
               rows={5}
               className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground font-mono text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all resize-none"
@@ -137,7 +141,7 @@ const ContactSection = () => {
             </button>
           </form>
 
-          <div className="pt-2 space-y-4">
+          <div id="contact-channels" className="pt-2 space-y-4">
             <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Contact Channels</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {socialLinks.map(({ label, href, icon: Icon }) => (
