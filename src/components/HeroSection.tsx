@@ -38,7 +38,11 @@ const TypingText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 grid-bg overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-16 grid-bg overflow-hidden"
+      aria-label="Hero section"
+    >
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left */}
@@ -49,7 +53,10 @@ const HeroSection = () => {
             className="space-y-8"
           >
             {/* Terminal */}
-            <div className="glass-card rounded-xl overflow-hidden max-w-lg">
+            <div
+              className="glass-card rounded-xl overflow-hidden max-w-lg"
+              aria-label="Technical specialization terminal preview"
+            >
               <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50">
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -82,6 +89,23 @@ const HeroSection = () => {
                 Md. Moinul Hasan{" "}
                 <span className="text-gradient">Akash</span>
               </motion.h1>
+
+              <p
+                style={{
+                  position: "absolute",
+                  width: "1px",
+                  height: "1px",
+                  padding: 0,
+                  margin: "-1px",
+                  overflow: "hidden",
+                  clip: "rect(0, 0, 0, 0)",
+                  whiteSpace: "nowrap",
+                  border: 0,
+                }}
+              >
+                Official portfolio of Md. Moinul Hasan Akash, Computer Engineer, CSE student at NITER, University of Dhaka, showcasing projects, skills, achievements, technical consulting, and contact information.
+              </p>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -109,6 +133,7 @@ const HeroSection = () => {
             >
               <a
                 href="#projects"
+                aria-label="View my projects"
                 className="glass-button px-6 py-3 rounded-lg font-mono text-sm hover:text-primary border-b-2 border-primary/50 hover:border-primary transition-all duration-200 flex items-center gap-2"
               >
                 <ArrowDown size={14} />
@@ -116,6 +141,7 @@ const HeroSection = () => {
               </a>
               <a
                 href="#contact"
+                aria-label="Get in touch with Md. Moinul Hasan Akash"
                 className="glass-button px-6 py-3 rounded-lg font-mono text-sm hover:text-primary transition-all duration-200 flex items-center gap-2"
               >
                 <Mail size={14} />
@@ -124,6 +150,7 @@ const HeroSection = () => {
               <a
                 href="/resume.pdf"
                 download="Moinul_Hasan_Akash_Resume.pdf"
+                aria-label="Download resume of Md. Moinul Hasan Akash"
                 className="glass-button px-6 py-3 rounded-lg font-mono text-sm hover:text-primary transition-all duration-200 flex items-center gap-2"
               >
                 <FileDown size={14} />
@@ -143,11 +170,12 @@ const HeroSection = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden glass-card p-1">
                 <img
                   src={profileImg}
-                  alt="Md. Moinul Hasan Akash"
+                  alt="Portrait of Md. Moinul Hasan Akash"
                   className="w-full h-full rounded-full object-cover object-top"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
-              {/* Orbit ring */}
               <div className="absolute inset-[-16px] rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary" />
               </div>
