@@ -3,17 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      // Redirect all routes to index.html
-      sessionStorage.redirect = location.pathname;
-      location.replace("/moinul-portfolio4/");
+      (function () {
+        var host = window.location.hostname;
+        if (host === "moinulhasan.github.io") {
+          window.location.replace("https://moinulhasan.pro.bd/");
+        } else {
+          window.location.replace("/");
+        }
+      })();
     </script>
-    <script>
-  (function () {
-    var host = window.location.hostname;
-    if (host === "moinulhasan.github.io") {
-      window.location.replace("https://moinulhasan.pro.bd" + window.location.pathname + window.location.search + window.location.hash);
-    }
-  })();
-</script>
   </head>
+  <body></body>
 </html>
