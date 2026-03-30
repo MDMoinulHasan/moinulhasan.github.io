@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # Node 24 ব্যবহার করা হয়েছে ওয়ার্নিং এড়াতে
+          node-version: 24 
 
       - name: Install dependencies
         run: npm install
