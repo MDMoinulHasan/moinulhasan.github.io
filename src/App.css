@@ -2,6 +2,21 @@
 html {
   scroll-behavior: smooth !important;
 }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* স্ক্রল ল্যাগ কমাতে এবং টাচ রেসপন্স ফাস্ট করতে */
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+#root {
+  /* হার্ডওয়্যার এক্সিলারেশন এনাবল করে */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 
 body {
   margin: 0;
