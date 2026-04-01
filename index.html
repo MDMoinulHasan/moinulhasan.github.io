@@ -41,13 +41,14 @@
     <meta name="twitter:image" content="https://moinulhasan.pro.bd/profile-photo.jpg" />
 
     <script>
-      (function () {
-        var host = window.location.hostname;
-        if (host === "moinulhasan.github.io") {
-          window.location.replace("https://moinulhasan.pro.bd" + window.location.pathname + window.location.search + window.location.hash);
-        }
-      })();
-    </script>
+  (function () {
+    var host = window.location.hostname;
+    // আগের ডোমেইন এবং ডিফল্ট গিটহাব ইউআরএল চেক করা হচ্ছে
+    if (host === "mdmoinulhasan.pro.bd" || host === "moinulhasan.github.io") {
+      window.location.replace("https://moinulhasan.pro.bd" + window.location.pathname + window.location.search + window.location.hash);
+    }
+  })();
+</script>
 
     <script type="application/ld+json">
     {
